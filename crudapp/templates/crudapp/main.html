@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CRUD Operations</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h2><a href = {% url 'form' %}>Click here to insert data</a>
+	<table border=10>
+        <tr>
+            <th>Name</th>
+            <th>Erno</th>
+            <th>Dept</th>
+            <th>College</th>
+            <th>Update</th>
+            <th>Remove</th>
+        </tr>
+        {% for info in records %}
+        <tr>
+            <td>{{info.Name}}</td>
+            <td>{{info.Erno}}</td>
+            <td>{{info.Dept}}</td>
+            <td>{{info.College}}</td>
+            <td><a href = "{% url 'update' info.id %}">Edit</a></td>
+            <td><a href = "{% url 'delete' info.id %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+  </body>
+</html>
